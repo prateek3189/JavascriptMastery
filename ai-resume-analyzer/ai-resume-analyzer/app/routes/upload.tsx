@@ -115,8 +115,7 @@ export default function Upload() {
     await kv.set(`resume:${uuid}`, JSON.stringify(data));
     // setIsProcessing(false);
     setStatus("Analysis Completed! Redirecting ...");
-    // navigate(`/result/${uuid}`);
-    console.log(data);
+    navigate(`/resume/${uuid}`);
   };
 
   const handleFileSelect = (file: File | null) => {
