@@ -5,6 +5,7 @@ import { usePuterStore } from "~/lib/puter";
 import Summary from "~/components/Summary";
 import ATS from "~/components/ATS";
 import Details from "~/components/Details";
+import { feedbackSample } from "constants";
 
 export const meta = () => {
   return [
@@ -47,7 +48,7 @@ const Resume = () => {
       }
       const imageUrl = URL.createObjectURL(imageBlob);
       setImageUrl(imageUrl);
-      setFeedback(data.feedback);
+      setFeedback(feedbackSample);
     };
     loadResume();
   }, [id]);

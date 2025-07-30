@@ -181,6 +181,85 @@ export const resumes: Resume[] = [
   },
 ];
 
+export const feedbackSample: Feedback = {
+  overallScore: 82,
+  ATS: {
+    score: 85,
+    tips: [
+      {
+        type: "good",
+        tip: "Resume includes relevant keywords for the target job.",
+      },
+      {
+        type: "improve",
+        tip: "Optimize file format for better ATS readability.",
+      },
+    ],
+  },
+  toneAndStyle: {
+    score: 78,
+    tips: [
+      {
+        type: "good",
+        tip: "Professional language used throughout.",
+        explanation:
+          "Your resume maintains a consistent and formal tone, which is preferred by most recruiters.",
+      },
+      {
+        type: "improve",
+        tip: "Consider reducing passive voice.",
+        explanation:
+          "Active voice is more direct and engaging for potential employers.",
+      },
+    ],
+  },
+  content: {
+    score: 80,
+    tips: [
+      {
+        type: "good",
+        tip: "Achievements are quantified.",
+        explanation:
+          "Providing numbers and measurable outcomes strengthens your impact.",
+      },
+      {
+        type: "improve",
+        tip: "Include a summary section.",
+        explanation:
+          "A summary at the top gives recruiters a quick overview of your profile.",
+      },
+    ],
+  },
+  structure: {
+    score: 75,
+    tips: [
+      {
+        type: "good",
+        tip: "Work experience is listed in reverse chronological order.",
+        explanation:
+          "This format is preferred and helps recruiters follow your career progression easily.",
+      },
+      {
+        type: "improve",
+        tip: "Use consistent formatting for section headers.",
+        explanation:
+          "Uniform font sizes and styles enhance readability and create a professional impression.",
+      },
+    ],
+  },
+  skills: {
+    score: 90,
+    tips: [
+      {
+        type: "good",
+        tip: "Skills section is detailed and relevant to the job description.",
+        explanation:
+          "Tailoring your skills to the job increases your chances of passing resume screenings.",
+      },
+    ],
+  },
+};
+
 export const AIResponseFormat = `
       interface Feedback {
       overallScore: number; //max 100

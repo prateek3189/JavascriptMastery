@@ -1,8 +1,8 @@
 import type { Route } from "./+types/home";
 import Navbar from "../components/Navbar";
-import { resumes } from "../../constants/index";
+import { resumes as resumesData } from "../../constants/index";
 import ResumeCard from "../components/ResumeCard";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router";
 import { usePuterStore } from "~/lib/puter";
 
@@ -14,9 +14,22 @@ export function meta({}: Route.MetaArgs) {
 }
 
 export default function Home() {
-  const { auth } = usePuterStore();
-  const location = useLocation();
+  const { auth, kv } = usePuterStore();
   const navigate = useNavigate();
+  const [resumes, setResumes] = useState<Resume[]>([]);
+  const [loadingResumes, setLoadingResumes] = useState(false);
+
+  useEffect(() => {
+    const fetchResumes = async () => {
+      setLoadingResumes(true);
+      // const resumes = (await kv.list("resumes:*", true)) as KVItem[];
+      // if (!resumes) return;
+      // setResumes(resumes.map((resume) => JSON.parse(resume.value) as Resume));
+      setResumes(resumesData);
+      setLoadingResumes(false);
+    };
+    fetchResumes();
+  }, []);
 
   useEffect(() => {
     if (!auth.isAuthenticated) navigate("/auth?next=/");
